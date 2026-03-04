@@ -6,7 +6,7 @@ import (
 
 type Genre struct {
 	GenreID int `bson:"genre_id" json:"genre_id" validate:"required"`
-	GenreName string `bson:"genre_name" json:"genre_name" validate:"required, min=2,max=100"`
+	GenreName string `bson:"genre_name" json:"genre_name" validate:"required,min=2,max=100"`
 
 
 }
@@ -18,7 +18,7 @@ type Ranking struct {
 }
 
 type Movie struct {
-	ID bson.ObjectID `bson:"_id" json:"id"`
+	ID bson.ObjectID `bson:"_id,omitempty" json:"id,omitempty"`
 	ImdbID string `bson:"imdb_id" json:"imdb_id" validate:"required"`
 	Title string `bson:"title" json:"title" validate:"required,min=2,max=100"`
 	PosterPath string `bson:"poster_path" json:"poster_path" validate:"required,url"`
